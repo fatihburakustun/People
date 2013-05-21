@@ -30,8 +30,10 @@ namespace PeopleWin
             ds.Dispose();
             label1.Visible = true;
             btnYas.Visible = true;
-            txtSoyad.Visible = true; 
+            txtSoyad.Visible = true;
 
+            dgwGetir.DataSource = Insan.Select_BySoyad("soyad");
+           
         }
 
         private void btnYas_Click(object sender, EventArgs e)
