@@ -31,6 +31,7 @@ namespace PeopleWin
             label1.Visible = true;
             btnYas.Visible = true;
             txtSoyad.Visible = true; 
+
         }
 
         private void btnYas_Click(object sender, EventArgs e)
