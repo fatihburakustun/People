@@ -17,9 +17,26 @@ namespace PeopleWin
         public Form1()
         {
             InitializeComponent();
+            mycn = new SqlConnection(this.Connstring);
         }
 
-        SqlConnection mycn = new SqlConnection("Server=.;Database=MyData;Trusted_Connection=True;");
+        // SqlConnection mycn = new SqlConnection("Server=.;Database=MyData;Trusted_Connection=True;");
+        SqlConnection mycn = null;
+
+        public string Connstring
+        {
+            get
+            {
+                // string dbconn = "Server=localhost\\SQLEXPRESS;Database=MyData;Trusted_Connection=True;AttachDbFilename=";
+                string basepath = AppDomain.CurrentDomain.BaseDirectory;
+                basepath = basepath.Substring(0, basepath.LastIndexOf("\\"));
+                basepath = basepath.Substring(0, basepath.LastIndexOf("\\"));
+                basepath = basepath.Substring(0, basepath.LastIndexOf("\\"));
+                basepath = basepath.Substring(0, basepath.LastIndexOf("\\")) + "\\DB\\MyData.mdf";
+                return "Server=localhost\\SQLEXPRESS;Database=MyData;Trusted_Connection=True;AttachDbFilename=" + basepath;
+            }
+        }
+
 
         private void btnGetir_Click(object sender, EventArgs e)
         {
@@ -32,7 +49,7 @@ namespace PeopleWin
             btnYas.Visible = true;
             txtSoyad.Visible = true;
 
-            dgwGetir.DataSource = Insan.Select_BySoyad("soyad");
+            // dgwGetir.DataSource = Insan.Select_BySoyad("soyad");
            
         }
 
